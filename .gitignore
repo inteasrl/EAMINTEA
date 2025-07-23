@@ -1,0 +1,4 @@
+./res/*.json
+!./res/res.txt
+./log/*.txt
+!./log/logs.txt

@@ -1,0 +1,20 @@
+lug 21, 2025 12:36:20 PM Connessione <init>
+INFO: Connessione riuscita al server localhost\SQLEXPRESS01
+lug 21, 2025 12:36:20 PM Connessione <init>
+INFO: Connessione riuscita al server localhost\SQLEXPRESS
+lug 21, 2025 12:36:20 PM CloneAgent updateContatori
+FINE: Inizio Aggiornamento Contatori
+lug 21, 2025 12:36:20 PM CloneAgent updateContatori
+INFO: elemento cancellato con OBJECTID A-PED-55-RD-PUF-0005
+lug 21, 2025 12:36:20 PM CloneAgent updateContatori
+INFO: elemento aggiornato con CODICE_EAM A-ADR-128-RD-PUF-00009
+lug 21, 2025 12:36:20 PM CloneAgent updateContatori
+INFO: elemento aggiornato con CODICE_EAM A-ADR-128-RD-PUF-00003
+lug 21, 2025 12:36:20 PM CloneAgent updateCondotte
+FINE: Inizio Aggiornamento Condotte
+lug 21, 2025 12:36:32 PM CloneAgent updateCondotte
+INFO: Aggiornato elemento con OBJECTID 10024
+lug 21, 2025 12:36:32 PM CloneAgent updateCondotte
+INFO: Aggiornato elemento con OBJECTID 10051
+lug 21, 2025 12:36:32 PM CloneAgent updateCondotte
+INFO: Aggiornato elemento con OBJECTID 19101
