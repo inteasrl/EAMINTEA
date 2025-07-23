@@ -82,7 +82,7 @@ public class CloneAgent {
         }
 
         
-        PreparedStatement ps = acoset.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (G2E_IDGIS, G2E_CLASS, G2E_COMUNE, G2E_INDIRIZZO, G2E_STATUS, G2E_ATTR1_DESC, G2E_ATTR1_VALUE, G2E_ATTR2_DESC, G2E_ATTR2_VALUE, G2E_ATTR3_DESC, G2E_ATTR3_VALUE, G2E_DATA_CREAZIONE, G2E_DATA_MODIFICA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = acoset.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (G2E_IDGIS, G2E_CLASS, G2E_COMUNE, G2E_INDIRIZZO, G2E_STATUS, G2E_ATTR1_DESC, G2E_ATTR1_VALUE, G2E_ATTR2_DESC, G2E_ATTR2_VALUE, G2E_ATTR3_DESC, G2E_ATTR3_VALUE, G2E_DATA_CREAZIONE, G2E_DATA_MODIFICA, G2E_TYPE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         
         copy = updated.executeQuery();
         while(copy.next()){
@@ -99,6 +99,7 @@ public class CloneAgent {
             ps.setString(11, copy.getString("CLASSE_DN"));
             ps.setTimestamp(12, Timestamp.valueOf(copy.getString("DATA_INS")));
             ps.setTimestamp(13, Timestamp.valueOf(copy.getString("DATA_AGG")));
+            ps.setInt(14, copy.getInt("TYPE"));
             ps.executeUpdate(); 
         }
     }
@@ -196,7 +197,7 @@ public class CloneAgent {
         PreparedStatement delete = acoset.getConnection().prepareStatement("DELETE FROM " + tabellaTarget);
         delete.executeUpdate();
 
-        PreparedStatement ps = acoset.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (G2E_IDGIS, G2E_CLASS, G2E_COMUNE, G2E_INDIRIZZO, G2E_STATUS, G2E_ATTR1_DESC, G2E_ATTR1_VALUE, G2E_ATTR2_DESC, G2E_ATTR2_VALUE, G2E_ATTR3_DESC, G2E_ATTR3_VALUE, G2E_DATA_CREAZIONE, G2E_DATA_MODIFICA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = acoset.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (G2E_IDGIS, G2E_CLASS, G2E_COMUNE, G2E_INDIRIZZO, G2E_STATUS, G2E_ATTR1_DESC, G2E_ATTR1_VALUE, G2E_ATTR2_DESC, G2E_ATTR2_VALUE, G2E_ATTR3_DESC, G2E_ATTR3_VALUE, G2E_DATA_CREAZIONE, G2E_DATA_MODIFICA, G2E_TYPE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         int count = 0;
       
         while(copy.next()){
@@ -213,6 +214,7 @@ public class CloneAgent {
             ps.setString(11, copy.getString("CLASSE_DN"));
             ps.setTimestamp(12, Timestamp.valueOf(copy.getString("DATA_INS")));
             ps.setTimestamp(13, Timestamp.valueOf(copy.getString("DATA_AGG")));
+            ps.setInt(14, copy.getInt("TYPE"));
             ps.executeUpdate(); 
             count++;
             System.out.print("\rScrivo condotte: " + count);
@@ -251,8 +253,8 @@ public class CloneAgent {
         int objid = 0;
         while(copy.next()){
             ps.setInt(1, objid);
-            ps.setString(2, copy.getString("E2G_COMUNE"));
-            ps.setString(3, copy.getString("E2G_ATTR2_DESC"));
+            ps.setString(2, copy.getString("E2G_ATTR2_VALUE"));
+            ps.setString(3, copy.getString("E2G_COMUNE"));
             ps.setString(4, copy.getString("E2G_INDIRIZZO"));
             ps.setString(5, copy.getString("E2G_DATA_CREAZIONE"));
             ps.setString(6, copy.getString("E2G_DATA_MODIFICA"));

@@ -1,0 +1,1 @@
+la cartella contiene i file di log dei processi nominati come i giorni in cui sono stati creati
