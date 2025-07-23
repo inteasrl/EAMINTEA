@@ -1,4 +1,7 @@
-./res/*.json
-!./res/res.txt
-./log/*.txt
-!./log/logs.txt
+# Ignora tutto dentro log/ tranne logs.txt
+log/*
+!log/logs.txt
+
+# Ignora tutto dentro res/ tranne res.txt
+res/*
+!res/res.txt
