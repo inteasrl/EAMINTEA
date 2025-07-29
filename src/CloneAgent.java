@@ -88,7 +88,7 @@ public class CloneAgent {
         while(copy.next()){
             ps.setInt(1, copy.getInt("OBJECTID") + 5000000);
             ps.setString(2,  "CONDOTTA");
-            ps.setString(3, copy.getString("COMUNE"));
+            ps.setString(3, copy.getString("ISTAT"));
             ps.setString(4, copy.getString("VIA_DENOMINAZIONE"));
             ps.setString(5, copy.getString("D_STATO"));
             ps.setString(6, "DISTRETTO");
