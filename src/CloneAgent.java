@@ -97,7 +97,7 @@ public class CloneAgent {
             ps.setString(9, copy.getString("MATERIALE"));
             ps.setString(10, "DIAMETRO");
             ps.setString(11, copy.getString("CLASSE_DN"));
-            ps.setTimestamp(12, Timestamp.valueOf(copy.getString("DATA_INS")));
+            ps.setTimestamp(12, Timestamp.valueOf(copy.getString("created_date")));
             ps.setTimestamp(13, Timestamp.valueOf(copy.getString("last_edited_date")));
             ps.setInt(14, copy.getInt("TYPE"));
             ps.executeUpdate(); 
@@ -165,7 +165,7 @@ public class CloneAgent {
         }
 
         
-        PreparedStatement ps = intea.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (OBJECTID, COD_PRESA, COMUNE, VIA_DENOMINAZIONE, DATA_INS, last_edited_date, D_STATO, POINT_X, POINT_Y, PUF_CODE) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = intea.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (OBJECTID, COD_PRESA, COMUNE, VIA_DENOMINAZIONE, created_date, last_edited_date, D_STATO, POINT_X, POINT_Y, PUF_CODE) VALUES (?,?,?,?,?,?,?,?,?,?)");
         
         //trova il piu grande Object Id nella tabella di target e accoda i nuovi record o i record modificati in quella di source agli elementi della tabella di target
         PreparedStatement idlist = intea.getConnection().prepareStatement("SELECT * FROM  " + tabellaTarget);
@@ -212,7 +212,7 @@ public class CloneAgent {
             ps.setString(9, copy.getString("MATERIALE"));
             ps.setString(10, "DIAMETRO");
             ps.setString(11, copy.getString("CLASSE_DN"));
-            ps.setTimestamp(12, Timestamp.valueOf(copy.getString("DATA_INS")));
+            ps.setTimestamp(12, Timestamp.valueOf(copy.getString("created_date")));
             ps.setTimestamp(13, Timestamp.valueOf(copy.getString("last_edited_date")));
             ps.setInt(14, copy.getInt("TYPE"));
             ps.executeUpdate(); 
@@ -248,7 +248,7 @@ public class CloneAgent {
         PreparedStatement delete = intea.getConnection().prepareStatement ("DELETE FROM " + tabellaTarget);
         delete.executeUpdate();
 
-        PreparedStatement ps = intea.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (OBJECTID, COD_PRESA, COMUNE, VIA_DENOMINAZIONE, DATA_INS, last_edited_date, D_STATO, POINT_X, POINT_Y, PUF_CODE) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = intea.getConnection().prepareStatement("INSERT INTO " + tabellaTarget + " (OBJECTID, COD_PRESA, COMUNE, VIA_DENOMINAZIONE, created_date, last_edited_date, D_STATO, POINT_X, POINT_Y, PUF_CODE) VALUES (?,?,?,?,?,?,?,?,?,?)");
         
         int objid = 0;
         while(copy.next()){
