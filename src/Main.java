@@ -22,7 +22,10 @@ public class Main {
 
         connessioni = updateListFromJson(connessioni, parser);
 
-      
+        if(args.length != 0 && args[0].equals("-updt")){
+            update(connessioni);
+            return;
+        }
         
         while(true){
             clearOutput();
@@ -135,6 +138,5 @@ public class Main {
         }
 
         System.out.println();
-        System.console().readLine("Return per continuare ");
     }
 }
