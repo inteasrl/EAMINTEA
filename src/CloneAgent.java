@@ -49,7 +49,7 @@ public class CloneAgent {
            
             if(ex == 0){
                 PreparedStatement delete = acoset.getConnection().prepareStatement("DELETE FROM " + tabellaTarget + " WHERE G2E_IDGIS = ?");
-                delete.setString(1, decrement(ceck.getString("G2E_IDGIS")));
+                delete.setString(1, ceck.getString("G2E_IDGIS"));
                 delete.executeUpdate();
                 cancellati ++;
                 System.out.println("elemento cancellato con OBJECTID " + ceck.getString("G2E_IDGIS"));
